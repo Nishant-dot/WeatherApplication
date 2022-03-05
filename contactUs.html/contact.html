@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style2.css">
+    
+    <title>Contact</title>
+</head>
+<body>
+
+    <div class="topnav">
+        <a class="active" href="http://127.0.0.1:5500/index.html">Home</a>
+        <a href="https://www.skymetweather.com/content/stories/weather-news-and-analysis/" target="_blank">News</a>
+        <a href="http://127.0.0.1:5500/contactUs.html/contact.html?">Contact</a>
+        <a href="http://127.0.0.1:5500/About%20Us/index3.html#">About</a>
+        <a href="http://127.0.0.1:5500/Digital%20Clock/index2.html">Timer</a>
+      </div>
+
+
+    <div class="con">
+       
+        <form onsubmit="sendEmail(); reset();">
+
+     <h3> GET IN TOUCH</h3>
+     <input type="text" id="name" placeholder="Your Name" >
+     <input type="email" id="emial" placeholder="Email Id">
+     <input type="text" id="phone" placeholder=" Phone No.">
+     <textarea id="message" rows="4" placeholder="How can i help you?"></textarea>
+     <button type="submit">Send</button>
+
+        </form>
+
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function sendEmail(){
+
+            Email.send({
+     
+    SecureToken: "fd18a381-a300-45ef-86ec-847572f4faee",            
+
+    // Host : "smtp.gmail.com",
+    // Username : "nishantmnit23@gmail.com",
+    // Password : "74E742CFAA91D5565C269CF84F0FFF7047E2",
+
+    To : 'nishantmnit23@gmail.com',
+    From : document.getElementById("email").value,
+    Subject : "New contact form enquiry",
+    Body : "Name: " + document.getElementById("name").value
+           + "</br> Email: " + document.getElementById("email").value
+           + "</br> Phone No.: " + document.getElementById("phone").value
+           + "</br> Message: " + document.getElementById("message").value
+}).then(
+  message => alert("Message sent succesfully")
+);
+
+        }
+    </script>
+    
+</body>
+</html>
